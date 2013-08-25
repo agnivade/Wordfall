@@ -33,9 +33,9 @@ function setAnimation(elem, count) {
         var rule = "";
         var elem = $(this);
         var offset = $(elem).offset();
-        var targetTop = $(document).height()
-                          - offset.top
-                          - settings.paddingBottom;
+        var targetTop = $(document).height() -
+                          offset.top -
+                          settings.paddingBottom;
         var targetLeft = offset.left + settings.paddingRight;
 
         while(index--){
@@ -59,7 +59,7 @@ function setAnimation(elem, count) {
         }
         var interval = (count * settings.fallIntervalSecs) * 1000;
         setTimeout(function(){
-          setAnimation(elem, count)
+          setAnimation(elem, count);
         },interval);
 
       });
