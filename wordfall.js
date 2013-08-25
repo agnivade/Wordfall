@@ -15,7 +15,8 @@ function setAnimation(elem, count) {
   $.fn.wordFall = function(options) {
     var settings = $.extend({
       'paddingRight':20,
-      'paddingBottom':20
+      'paddingBottom': 20,
+      'fallIntervalSecs': 0.5
     }, options);
     /* Internal settings */
     var multiplier = 360;
@@ -27,7 +28,7 @@ function setAnimation(elem, count) {
       var newInnerHtml = divideTextInSpans($(this).text());
       $(this).html(newInnerHtml);
       $(this).children().each(function(count){
-        var rotateDegree = Math.random()*multipler + adder;
+        var rotateDegree = Math.random()*multiplier + adder;
         var index = Modernizr._prefixes.length;
         var rule = "";
         var elem = $(this);
@@ -56,7 +57,7 @@ function setAnimation(elem, count) {
             style.sheet.insertRule(rule);
           } catch(err){}
         }
-        var interval = (count+1) * 1000;
+        var interval = (count * settings.fallIntervalSecs) * 1000;
         setTimeout(function(){
           setAnimation(elem, count)
         },interval);
